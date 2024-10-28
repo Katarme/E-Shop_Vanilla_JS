@@ -45,7 +45,13 @@ const initApp = async () => {
 //     });
 // };
 
-// const cartButton = document.getElementById("go-to-cart");
+// const cartButton = document.getElementById("go-to-cart"); 
 // cartButton.onclick = () => navigate("cart");
+
+// function navigate(page) {
+//     if (page === "cart") {
+//         window.location.href = "cart.html"; // Change to your cart page
+//     }
+// }
 
 document.addEventListener("DOMContentLoaded", initApp);
