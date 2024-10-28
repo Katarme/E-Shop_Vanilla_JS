@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>E-pood</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+    <div class="logo">
+        <h1>LOGO</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#category1">Electronics</a></li>
+            <li><a href="#category2">Jewelry</a></li>
+            <li><a href="#category3">Mens clothes</a></li>
+            <li><a href="#category4">Womens clothes</a></li>
+            <li class="cart">
+                <a href="#cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a></li>
+
+        </ul>
+    </nav>
+    </header>
+
+    <h1>Tere tulemast meie e-poodi!</h1>
+    <!-- Toodete nimekiri -->
+    <div id="product-list"></div>
+    <h2>Ostukorv</h2>
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+    <button id="clear-cart">Tühjenda ostukorv</button>
+
+    <div class="navbar">
+        <a href="cart.php" class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </a>
+    </div>
+    
+    <div class="categories" id="categories-container"></div>
+    
+    <div class="products" id="products-container"></div>
+
+    <!-- <script src="categoryView.js"></script>
+    <script src="productView.js"></script>
+    <script src="cartView.js"></script> -->
+    <script type="module" src="index.js"></script>
+
+    <footer>
+        <p>© 2024 Katriin A. E-pood. Kõik õigused kaitstud.</p>
+    </footer>
+</body>
+</html>
