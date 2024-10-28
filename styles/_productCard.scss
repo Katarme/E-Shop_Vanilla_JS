@@ -1,0 +1,23 @@
+// Toote pildid
+.product-card {
+    height: 540px;
+    width: 200px; /* Määrab kaardi laiuse */
+    border: 2px solid rgb(222, 220, 220); /* Hall 2px joon ümber */
+    border-radius: 5px; /* Nurkade ümardamine */
+    padding: 30px 30px; /* Sisemine marginaal */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Varju efekt */
+}
+
+.product-card img {
+        width: 200px;
+        height: 300px;
+}
+
+.product {
+    border: 1px solid #c4c4c4;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    display: flex-start;
+    box-sizing: border-box;
+  }
