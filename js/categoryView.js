@@ -12,6 +12,7 @@ export async function displayProducts(category = null) {
             const card = document.createElement('div');
             card.className = 'product-card';
             card.innerHTML = `
+                <image src="${product.image}" alt="${product.title}">
                 <h3>${product.title}</h3>
                 <p>Price: $${product.price.toFixed(2)}</p>
                 <button class="buy-now" onclick="addToCart(${product.id})">Buy Now</button>
