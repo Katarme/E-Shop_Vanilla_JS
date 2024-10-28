@@ -20,4 +20,9 @@ export async function displayProducts(category = null) {
             productsContainer.appendChild(card);
         }
     });
+    //     productsContainer.onclick = () => navigate("product", product.id)
+
+//     button.addEventListener("click", (event) => {
+//         // arrow function
+// }
 }

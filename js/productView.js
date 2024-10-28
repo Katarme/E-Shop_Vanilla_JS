@@ -1,8 +1,6 @@
 import { fetchProduct } from './api.js';
 
-const productId = new URLSearchParams(window.location.search).get('id');
-
-const displayProduct = async (id) => {
+export const displayProduct = async (id) => {
     const product = await fetchProduct(id);
     const productDetailContainer = document.getElementById('product-detail');
 
