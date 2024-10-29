@@ -55,3 +55,12 @@ const initApp = async () => {
 // }
 
 document.addEventListener("DOMContentLoaded", initApp);
+
+// JavaScript to toggle visibility on button click
+document.getElementById("myBtn").addEventListener("click", function() {         
+    const element = document.getElementById("cart-container");         
+    if (element.style.display === "none" || element.style.display === "") {             
+        element.style.display = "block"; // Show the element        
+        } else {             
+        element.style.display = "none"; // Hide the element 
+} });

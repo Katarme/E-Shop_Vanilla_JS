@@ -20,7 +20,7 @@
             <li><a href="#category3">Mens clothes</a></li>
             <li><a href="#category4">Womens clothes</a></li>
             <li class="cart">
-                <a href="#cart">
+                <a id="myBtn" href="#cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
                 </a></li>
@@ -31,20 +31,19 @@
 
     <h1>Tere tulemast meie e-poodi!</h1>
     <p>Tutvu toodetega lähemalt</p>
-    <!-- Toodete nimekiri -->
     <div id="product-list"></div>
-    <div id="product-detail" class="product-card" style="display: none;"></div>
-    <h2>Ostukorv</h2>
-    <div id="cart-items"></div>
-    <div id="cart-total"></div>
-    <button id="clear-cart">Tühjenda ostukorv</button>
+    <div id="cart-container" class="cart-container">
+        <h2>Ostukorv</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total"></div>
+        <button id="clear-cart">Tühjenda ostukorv</button>
 
-    <div class="navbar">
-        <!-- Button -->
-        <a href="cart.php" class="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count">0</span>
-        </a>
+        <!-- <div class="navbar">
+            <a href="cart.php" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a> -->
+        </div>
     </div>
 
     <div class="products" id="products-container"></div>
