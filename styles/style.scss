@@ -2,7 +2,6 @@
 
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
 }
 
 header {
@@ -17,6 +16,10 @@ header {
 .logo h1 {
     margin: 0;
     color: white;
+  }
+
+  .h2 {
+    text-align: center;
   }
 
 .h3 {
@@ -35,6 +38,29 @@ header {
     text-overflow: ellipsis;
 }
 
+.kategooria {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    
+    background-color: #eee;
+    padding: 8px;
+    border-radius: 30px;
+  }
+
+  .toote-nimi {
+    display: inline-block;
+    width: 180px;
+    height: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
 .products {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 veergu */
@@ -42,6 +68,7 @@ header {
     padding-top: 40px; /* Ülemine padding */
     justify-content: center; /* Keskjoondus horisontaalselt */
     align-items: start; /* Joondus ülemise serva järgi (valikuline) */
+    background-color: #f7f7f7;
   }
 
 .button {
@@ -56,25 +83,6 @@ header {
 .button:hover {
   background-color: #2403aa;
 }
-
-// #cart-items {
-//   margin-top: 20px;
-// }
-
-// #cart-total {
-//   font-weight: bold;
-// }
-
-// #clear-cart {
-//   cursor: pointer;
-//   background-color: #2403aa;
-//   color: white;
-//   border: none;
-//   padding: 10px 12px;
-//   padding-top: 10px;
-//   border-radius: 30px;
-//   margin-top: 30px;
-// }
 
 nav ul {
   list-style-type: none;
@@ -97,7 +105,11 @@ nav ul li a:hover {
   color: #007bff; /* Muudame värvi hover'i efekti */
 }
 
-// Osta nüüd nupud
+#category-menu {
+    color: white;
+} 
+
+// "Osta" nupp
 .buy-now {
     cursor: pointer;
     background-color: #2403aa;
@@ -108,10 +120,12 @@ nav ul li a:hover {
     border-radius: 30px;
 }
 
+// Osta nupp "hover" efekt
 .buy-now:hover {
     background-color: #180270; 
 }
 
+// Jalus
 footer {
   text-align: center;
   background: #000000;
@@ -131,6 +145,7 @@ footer {
     font-weight: bold;
 }
 
+// "Tyhjenda ostukorv" nupp
 #clear-cart {
     cursor: pointer;
     background-color: #2403aa;
@@ -142,13 +157,14 @@ footer {
     margin-top: 30px;
 }
 
+// Ostukorvi konteiner
 #cart-container {
     display: none;
     position: fixed;
-    top: 240px;
+    top: 220px;
     left: 0px;
     width: 100vW;
     height: 100vh;
-    background-color: aliceblue;
+    background-color: #f7f7f7;
     padding: 40px;
 }

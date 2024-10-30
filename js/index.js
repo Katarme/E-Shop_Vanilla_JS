@@ -1,31 +1,29 @@
 import { displayProducts } from "./categoryView.js";
-// import { fetchProduct } from "./api.js";
+import { fetchCategories } from "./api.js";
 
-const initApp = async () => {
-    console.log("Olen siin");
-    displayProducts();
-};
+// const initApp = async () => {
+//     console.log("Olen siin");
+//     displayProducts();
+// };
 
 // Lingin kategooriad onclick
 
-// initializeInventory();
+const initApp = async () => {
+    const categories = await fetchCategories();
+    console.log(categories);
+    const categoryMenu = document.getElementById("category-menu");
 
-// const initApp = async () => {
-//     const categories = await fetchCategories();
-//     console.log(categories);
-//     const categoryMenu = document.getElementById("category-menu");
+    categories.forEach((category) => {
+        const categoryElement = document.createElement("li");
+        categoryElement.textContent = category;
+        categoryElement.onclick = () => displayProducts(category);
+        categoryMenu.appendChild(categoryElement);
+    }),
 
-//     categories.forEach((category) => {
-//         const categoryElement = document.createAttribute.createElement("li");
-//         categoryElement.textContent = category;
-//         categoryElement. onclick = () => loadCategoryView(category);
-//         categoryMenu.appendChild(categoryElement);
-//     }),
+    displayProducts(categories[0]);
+}
 
-//     loadCategoryView(categories[0]);
-// }
-
-document.addEventListener("DOMContentLoaded", initApp);
+    document.addEventListener("DOMContentLoaded", initApp);
 
 // JavaScript ostukorvi nägemiseks ostukorvi ikoonil vajutades paremal nav nurgas.
 document.getElementById("myBtn").addEventListener("click", function() {         

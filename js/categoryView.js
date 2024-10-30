@@ -14,8 +14,8 @@ export async function displayProducts(category = null) {
             card.className = 'product-card';
             card.innerHTML = `<div class="${product.category}">
                 <image src="${product.image}" alt="${product.title}">
-                <h3>${product.title}</h3>
-                <h4>${product.category}</h4>
+                <h3 class="toote-nimi">${product.title}</h3>
+                <h4 class="kategooria">${product.category}</h4>
                 <p>Price: $${product.price.toFixed(2)}</p>
                 <button class="buy-now" onclick="addToCart(${product.id})">Buy Now</button></div>
             `;

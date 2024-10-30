@@ -1,23 +1,43 @@
-// Toote pildid
+// Tootekaardi kujundus
 .product-card {
-    height: 540px;
-    width: 200px; /* Määrab kaardi laiuse */
-    border: 2px solid rgb(222, 220, 220); /* Hall 2px joon ümber */
+    width: 200px; /* laius */
+    height: 540px; /* k6rgus */
+    border: 2px solid rgb(222, 220, 220); /* Hall 2px joon ymber */
     border-radius: 5px; /* Nurkade ümardamine */
-    padding: 30px 30px; /* Sisemine marginaal */
+    padding: 30px 80px; /* Sisemine marginaal */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Varju efekt */
+    background-color: #fff;
+    margin-left: 40px;
+    margin-bottom: 56px;
 }
 
+// Tootekaardi pildi m66tmed
 .product-card img {
-        width: 200px;
-        height: 300px;
+    width: 200px; /* laius */
+    height: 300px; /* k6rgus */
 }
 
+// Toote kujundus 
 .product {
-    border: 1px solid #c4c4c4;
-    padding: 10px;
-    margin: 10px;
-    width: 100%;
-    display: flex-start;
+    width: 100%; /* laius */
+    border: 1px solid #c4c4c4; /* joon ümber */
+    padding: 10px; /* sisemine marginaal */
+    margin: 10px; /* v2line marginaal */
+    display: flex-start; /* alusta algusest */
     box-sizing: border-box;
+  }
+
+// Kategooriate labelite h4 teksti kujundus
+  .h4 {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    
+    background-color: #eee;
+    padding: 8px;
+    border-radius: 30px;
   }
