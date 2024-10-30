@@ -7,8 +7,8 @@ import { loadCategoryView } from "./loadCategoryView.js";
 export const navigate = (view, parem) => {
     const views = {
         category: () => loadCategoryView(parem || "all"), // Kasuta vaikeväärtust "all" kategooriana
-        // 'product': () => loadProductView(parem), // üks toode
-        // 'cart': () => loadCartView(), // Näita ostukorvi vaadet
+        // product: () => loadProductView(parem), // üks toode
+        // cart: () => loadCartView(), // Näita ostukorvi vaadet
     };
 
     //Vali ja käivita sobiv vaade
@@ -21,7 +21,7 @@ export const navigate = (view, parem) => {
     }
 };
 
-// Sündmuse kuulaja, kui kasutaja vajutab "tagasi" või "edasi" nuppu brauseris
+// Sündmuse listener, kui kasutaja vajutab "tagasi" või "edasi" nuppu brauseris
 window.addEventListener("popstate", () => {
     const path = window.location.pathname;
     const [_, view, param] = path.split('/');

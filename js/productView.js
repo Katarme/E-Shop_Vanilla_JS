@@ -11,7 +11,9 @@ export const displayProduct = async (id) => {
             <p>Price: $${product.price.toFixed(2)}</p>
             <button class="buy-now" onclick="addToCart(${product.id})">Buy Now</button>
         `;
+//         productDetailContainer.style.display = 'block'; // Kuvab tootekaarti
     } else {
         productDetailContainer.innerHTML = '<p>Toodet ei leitud.</p>';
+//         productDetailContainer.style.display = 'block'; // Kuvab tootekaarti
     }
 };

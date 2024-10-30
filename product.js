@@ -3,7 +3,7 @@ export class Product {
         this.id = id;
         this.title = title;
         this.price = price;
-        this.category = (electronics, jewelry, mensClothes, womensClothes);
+        this.category = category;
         this.description = description;
         this.image = image;
         this.quantity = 1;
