@@ -2,7 +2,7 @@
 .product-card {
   width: 200px; /* laius */
   height: 540px; /* k6rgus */
-  border: 2px solid rgb(222, 220, 220); /* Hall 2px joon ymber */
+  border: 2px solid rgb(245, 245, 245); /* Hall 2px joon ymber */
   border-radius: 5px; /* Nurkade ümardamine */
   padding: 30px 80px; /* Sisemine marginaal */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Varju efekt */
@@ -25,19 +25,6 @@
   box-sizing: border-box;
 }
 
-.h4 {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-  unicode-bidi: isolate;
-  background-color: #eee;
-  padding: 8px;
-  border-radius: 30px;
-}
-
 body {
   font-family: Arial, sans-serif;
 }
@@ -56,8 +43,18 @@ header {
   color: white;
 }
 
-.h2 {
+.alapealkiri {
   text-align: center;
+  font-size: xx-large;
+  margin-top: 40px;
+}
+
+.ostuk2ru:visited {
+  color: #fff;
+}
+
+.ostuk2ru {
+  color: #fff;
 }
 
 .h3 {
