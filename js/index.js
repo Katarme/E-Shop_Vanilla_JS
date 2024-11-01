@@ -26,6 +26,7 @@ const initApp = async () => {
     document.addEventListener("DOMContentLoaded", initApp);
 
 // JavaScript ostukorvi nägemiseks ostukorvi ikoonil vajutades paremal nav nurgas.
+
 document.getElementById("myBtn").addEventListener("click", function() {         
     const element = document.getElementById("cart-container");         
     if (element.style.display === "none" || element.style.display === "") {             

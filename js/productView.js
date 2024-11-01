@@ -1,4 +1,5 @@
 import { fetchProduct } from './api.js';
+import { addToCart } from './cartView.js';
 
 export const displayProduct = async (id) => {
     const product = await fetchProduct(id);
@@ -46,7 +47,7 @@ export const loadProductView = async (productId) => {
 
   // Lisa sündmus "Lisa ostukorvi" nupule
   document.getElementById(`add-to-cart-${product.id}`).onclick = () => {
-    addToCart(product);
+    addToCart(product.id);
     loadProductView(product.id);
   };
 

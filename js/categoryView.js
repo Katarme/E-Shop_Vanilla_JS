@@ -1,5 +1,4 @@
 import { fetchProducts } from "./api.js";
-// import { fetchCategories } from "./api.js";
 
 export async function displayProducts(category = null) {
     console.log("Fetchin tooted")
@@ -83,7 +82,7 @@ export const loadCategoryView = async (category) => {
   
       document.getElementById(`add-to-cart-${product.id}`).onclick = (e) => {
         e.stopPropagation(); // Vältida, et tootekaardile klikkimine navigeeriks tootevaatesse, kui vajutatakse "Lisa ostukorvi" nuppu
-        addToCart(product);
+        addToCart(productId);
         console.log("click");
       };
     });

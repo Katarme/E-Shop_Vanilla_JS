@@ -11,14 +11,14 @@ export function addToCart(productId) {
     }
 }
 
-function displayCart() {
+export function displayCartView() {
     const cartItemsDiv = document.getElementById('cart-items');
     cartItemsDiv.innerHTML = '';
     cart.listItems().forEach(item => {
         const itemDiv = document.createElement('div');
-        itemDiv.innerHTML = `${item.product.name} -
+        itemDiv.innerHTML = `${item.product.id} -
         <input type = "number" min = "1" value = "${item.quantity}" onchange = {"updateCart.quantity">
-            <button class="button remove-item" data-name="${item.product.name}">Eemalda</button>
+            <button class="button remove-item" data-name="${item.product.id}">Eemalda</button>
         `;
 
         cartItemsDiv.appendChild(itemDiv);
@@ -28,36 +28,36 @@ function displayCart() {
     totalDiv.innerHTML = `Kogusumma: ${cart.getTotal()}€`;
 }
 
-displayCart(); 
+displayCartView();
 
 document.addEventListener('click', (event) => {
     if (event.target.classList.contains('add-to-cart')) {
-        const productName = event.target.getAttribute('data-name');
-        const product = inventory.findProductByName(productName);
+        const productId = event.target.getAttribute('data-id');
+        const product = inventory.findProductById(productId);
 
         if (product && product.quantity > 0) {
             cart.addItem(product, 1);
             displayCart();
         } else {
-            alert(`${productName} on otsas!`);
+            alert(`${productTitle} on otsas!`);
         }
     } else if (event.target.classList.contains('remove-item')) {
-        const productName = event.target.getAttribute('data-name');
-        cart.removeItem(productName);
+        const productId = event.target.getAttribute('data-id');
+        cart.removeItem(productId);
         displayCart();
     } else if (event.target.classList.contains('backorder')) {
-        const productName = event.target.getAttribute('data-name');
-        const product = inventory.findProductByName(productName);
+        const productId = event.target.getAttribute('data-id');
+        const product = inventory.findProductByName(productId);
         if (product) {
-            alert(`Tellimus toote ${product.name} kohta on esitatud!`);
+            alert(`Tellimus toote ${product.title} kohta on esitatud!`);
         }
     }
 });
 
 document.getElementById('clear-cart').addEventListener('click', () => {
-    cart.clearCart();
+    cart.clearCartView();
     displayCart();
 });
 
 displayProducts();
-displayCart();
+displayCartView();
