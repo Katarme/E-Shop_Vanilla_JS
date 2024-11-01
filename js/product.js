@@ -1,3 +1,4 @@
+// Toote andmed
 export class Product {
     constructor (id, title, price, description, image, category) {
         this.id = id;

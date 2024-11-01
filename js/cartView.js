@@ -1,6 +1,7 @@
 let cart = [];
 let cartCount = 0;
 
+// Funktsioon toote ostukorvi limiseks + annab teate, mis toode on lisatud
 export function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     if (product) {
@@ -11,6 +12,7 @@ export function addToCart(productId) {
     }
 }
 
+// Funktsioon ostukorvi kuvamiseks, sisestusväljal saab kogust redigeerida
 export function displayCartView() {
     const cartItemsDiv = document.getElementById('cart-items');
     cartItemsDiv.innerHTML = '';
@@ -30,6 +32,7 @@ export function displayCartView() {
 
 displayCartView();
 
+// Kliki sündmus. Lisab ühe toote id põhiselt, kui toodet on rohkem kui 0. Kui >0, siis annab teate: "Toote nimi" on otsas! ; Tellimus toote kohta on esitatud.
 document.addEventListener('click', (event) => {
     if (event.target.classList.contains('add-to-cart')) {
         const productId = event.target.getAttribute('data-id');
@@ -49,15 +52,16 @@ document.addEventListener('click', (event) => {
         const productId = event.target.getAttribute('data-id');
         const product = inventory.findProductByName(productId);
         if (product) {
-            alert(`Tellimus toote ${product.title} kohta on esitatud!`);
+            alert(`Tellimus toote ${product.title} kohta on esitatud.`);
         }
     }
 });
 
+// Tühjenda ostukorv
 document.getElementById('clear-cart').addEventListener('click', () => {
-    cart.clearCartView();
+    cart.clearCart();
     displayCart();
 });
 
 displayProducts();
-displayCartView();
+displayCart();

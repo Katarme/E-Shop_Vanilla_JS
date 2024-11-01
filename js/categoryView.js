@@ -1,5 +1,6 @@
 import { fetchProducts } from "./api.js";
 
+// Kuvan API-ga fetchitud tooted toodete konteineris koos nime, kategooria, hinna ja pildiga
 export async function displayProducts(category = null) {
     console.log("Fetchin tooted")
     const products = await fetchProducts();
@@ -15,47 +16,21 @@ export async function displayProducts(category = null) {
                 <image src="${product.image}" alt="${product.title}">
                 <h3 class="toote-nimi">${product.title}</h3>
                 <h4 class="kategooria">${product.category}</h4>
-                <p>Price: $${product.price.toFixed(2)}</p>
+                <p>$${product.price.toFixed(2)}</p>
                 <button class="buy-now" onclick="addToCart(${product.id})">Buy Now</button></div>
             `;
             productsContainer.appendChild(card);
         }
     });
-    //     productsContainer.onclick = () => navigate("product", product.id)
-
-//     button.addEventListener("click", (event) => {
-//         // arrow function
-// }
 }
-
-
-
-// const cartButton = document.getElementById("go-to-cart"); 
-// cartButton.onclick = () => navigate("cart");
-
-// function navigate(page) {
-//     if (page === "cart") {
-//         window.location.href = "cart.html"; // Change to your cart page
-//     }
-// }
-
-
-
 
 
 // ______________________________________________________________
 
-
 export const loadCategoryView = async (category) => {
     const products = await fetchProductsByCategory(category);
     const productList = document.getElementById("product-list");
-    productList.innerHTML = ""; // Tühjenda tooteala
-  
-    // // Filtreeri tooted, kui valitud on kategooria
-    // const filteredProducts =
-    //   category === "all"
-    //     ? products
-    //     : products.filter((product) => product.category === category);
+    productList.innerHTML = ""; // Tühjenda toodete ala
   
     products.forEach((productData) => {
       const product = new Product(
@@ -81,7 +56,7 @@ export const loadCategoryView = async (category) => {
       productList.appendChild(productElement);
   
       document.getElementById(`add-to-cart-${product.id}`).onclick = (e) => {
-        e.stopPropagation(); // Vältida, et tootekaardile klikkimine navigeeriks tootevaatesse, kui vajutatakse "Lisa ostukorvi" nuppu
+        e.stopPropagation(); // Väldib, et tootekaardile klikk navigeeriks tootevaatesse, kui vajutatakse "Lisa ostukorvi" nuppu
         addToCart(productId);
         console.log("click");
       };

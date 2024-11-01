@@ -23,14 +23,14 @@ const initApp = async () => {
     displayProducts(categories[0]);
 }
 
-    document.addEventListener("DOMContentLoaded", initApp);
+document.addEventListener("DOMContentLoaded", initApp);
 
-// JavaScript ostukorvi nägemiseks ostukorvi ikoonil vajutades paremal nav nurgas.
+// JavaScript ostukorvi kihi nägemiseks ostukorvi ikoonil vajutades paremal nav nurgas
 
 document.getElementById("myBtn").addEventListener("click", function() {         
     const element = document.getElementById("cart-container");         
     if (element.style.display === "none" || element.style.display === "") {             
-        element.style.display = "block"; // Show the element        
+        element.style.display = "block"; // Näitab elementi      
         } else {             
-        element.style.display = "none"; // Hide the element 
+        element.style.display = "none"; // Peidab elemendi
 } });
