@@ -1,19 +1,20 @@
 @charset "UTF-8";
 .product-card {
-  width: 200px; /* laius */
-  height: 540px; /* k6rgus */
+  width: 160px; /* laius */
+  height: 500px; /* k6rgus */
   border: 2px solid rgb(245, 245, 245); /* Hall 2px joon ymber */
   border-radius: 5px; /* Nurkade ümardamine */
-  padding: 30px 80px; /* Sisemine marginaal */
+  padding: 30px 100px; /* Sisemine marginaal */
+  padding-left: 48px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Varju efekt */
   background-color: #fff;
-  margin-left: 40px;
+  margin-left: 20px;
   margin-bottom: 56px;
 }
 
 .product-card img {
-  width: 200px; /* laius */
-  height: 300px; /* k6rgus */
+  width: 180px; /* laius */
+  height: 270px; /* k6rgus */
 }
 
 .product {
@@ -21,7 +22,7 @@
   border: 1px solid #c4c4c4; /* joon ümber */
   padding: 10px; /* sisemine marginaal */
   margin: 10px; /* v2line marginaal */
-  display: flex-start; /* alusta algusest */
+  display: center; /* alusta algusest */
   box-sizing: border-box;
 }
 
@@ -30,12 +31,13 @@ body {
 }
 
 header {
-  background-color: #000000;
+  background-color: #050046;
   color: fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px;
+  height: 30px;
 }
 
 .logo {
@@ -53,27 +55,12 @@ header {
   margin-top: 40px;
 }
 
-.ostuk2ru:visited {
-  color: #fff;
-}
-
 .ostuk2ru {
   color: #fff;
 }
 
-.h3 {
-  display: block;
-  font-size: 1.17em;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-  unicode-bidi: isolate;
-  width: 200px; /* Määrab pealkirja laiuse */
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.ostuk2ru:visited {
+  color: #fff;
 }
 
 .kategooria {
@@ -93,8 +80,8 @@ header {
 
 .toote-nimi {
   display: inline-block;
-  width: 180px;
-  height: 32px;
+  width: 200px;
+  max-height: 24px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -103,24 +90,11 @@ header {
 .products {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 veergu */
-  grid-gap: 10px; /* Vahe kaartide vahel */
+  grid-gap: 0px; /* Vahe kaartide vahel */
   padding-top: 40px; /* Ülemine padding */
-  justify-content: center; /* Keskjoondus horisontaalselt */
+  justify-content: flex-start; /* Keskjoondus horisontaalselt */
   align-items: start; /* Joondus ülemise serva järgi (valikuline) */
   background-color: #f7f7f7;
-}
-
-.button {
-  cursor: pointer;
-  background-color: #2403aa;
-  color: white;
-  border: none;
-  padding: 10px 12px;
-  border-radius: 30px;
-}
-
-.button:hover {
-  background-color: #2403aa;
 }
 
 nav ul {
@@ -140,31 +114,32 @@ nav ul li a {
   transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-  color: #007bff; /* Muudame värvi hover'i efekti */
-}
-
 #category-menu {
   color: white;
 }
 
 .buy-now {
   cursor: pointer;
-  background-color: #2403aa;
-  width: auto;
-  color: white;
-  border: none;
+  background-color: #050046;
+  text-decoration-color: #ffffff;
+  color: #fff;
+  width: 200px;
+  height: 52px;
+  border-color: #050046;
   padding: 10px 20px;
   border-radius: 30px;
+  font-weight: 800;
 }
 
 .buy-now:hover {
-  background-color: #180270;
+  background-color: #050046;
+  color: rgb(255, 255, 255);
+  font-weight: 800;
 }
 
 footer {
   text-align: center;
-  background: #000000;
+  background: #050046;
   color: white;
   padding: 10px 0;
   position: relative;
@@ -183,7 +158,7 @@ footer {
 
 #clear-cart {
   cursor: pointer;
-  background-color: #2403aa;
+  background-color: #050046;
   color: white;
   border: none;
   padding: 10px 12px;
@@ -201,4 +176,8 @@ footer {
   height: 100vh;
   background-color: #f7f7f7;
   padding: 40px;
+}
+
+.hinnakujundus {
+  font-weight: 700;
 }/*# sourceMappingURL=style.css.map */

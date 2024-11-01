@@ -1,5 +1,5 @@
 import { loadCategoryView } from "./loadCategoryView.js";
-// import { loadProductView } from './productView.js';
+import { loadProductView } from './productView.js';
 // import { loadCartView } from './cartView.js';
 
 // Funktsioon, mis vastutab vaadete vahel liikumise eest

@@ -5,12 +5,13 @@ body {
 }
 
 header {
-    background-color: #000000;
+    background-color: #050046;
     color: fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 20px;
+    height: 30px;
   }
 
   .logo {
@@ -28,28 +29,12 @@ text-decoration: none;
     margin-top: 40px;
   }
 
+  .ostuk2ru {
+    color:#fff;
+}
+
 .ostuk2ru:visited {
     color:#fff;
-}
-
-.ostuk2ru {
-    color:#fff;
-}
-
-.h3 {
-    display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    unicode-bidi: isolate;
-
-    width: 200px; /* Määrab pealkirja laiuse */
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 .kategooria {
@@ -69,35 +54,23 @@ text-decoration: none;
 
   .toote-nimi {
     display: inline-block;
-    width: 180px;
-    height: 32px;
+    width: 200px;
+    max-height: 24px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
   }
 
 .products {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 veergu */
-    grid-gap: 10px; /* Vahe kaartide vahel */
+    grid-gap: 0px; /* Vahe kaartide vahel */
     padding-top: 40px; /* Ülemine padding */
-    justify-content: center; /* Keskjoondus horisontaalselt */
+    justify-content: flex-start; /* Keskjoondus horisontaalselt */
     align-items: start; /* Joondus ülemise serva järgi (valikuline) */
     background-color: #f7f7f7;
   }
-
-.button {
-  cursor: pointer;
-  background-color: #2403aa;
-  color: white;
-  border: none;
-  padding: 10px 12px;
-  border-radius: 30px;
-}
-
-.button:hover {
-  background-color: #2403aa;
-}
 
 nav ul {
   list-style-type: none;
@@ -116,34 +89,36 @@ nav ul li a {
   transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-  color: #007bff; /* Muudame värvi hover'i efekti */
-}
-
 #category-menu {
     color: white;
-} 
+}
 
 // "Osta" nupp
 .buy-now {
     cursor: pointer;
-    background-color: #2403aa;
-    width: auto;
-    color: white;
-    border: none;
+    background-color: #050046;
+    text-decoration-color: #ffffff;
+    color: #fff;
+    width: 200px;
+    height: 52px;
+    border-color: #050046;
     padding: 10px 20px;
     border-radius: 30px;
+    font-weight: 800;
 }
 
 // Osta nupp "hover" efekt
 .buy-now:hover {
-    background-color: #180270; 
+    // background-color: #180270;
+    background-color: #050046;
+    color: rgb(255, 255, 255);
+    font-weight: 800;
 }
 
 // Jalus
 footer {
   text-align: center;
-  background: #000000;
+  background: #050046;
   color: white;
   padding: 10px 0;
   position: relative;
@@ -163,7 +138,7 @@ footer {
 // "Tyhjenda ostukorv" nupp
 #clear-cart {
     cursor: pointer;
-    background-color: #2403aa;
+    background-color: #050046;
     color: white;
     border: none;
     padding: 10px 12px;
@@ -182,4 +157,8 @@ footer {
     height: 100vh;
     background-color: #f7f7f7;
     padding: 40px;
+}
+
+.hinnakujundus {
+    font-weight: 700;
 }

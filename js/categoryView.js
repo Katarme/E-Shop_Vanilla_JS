@@ -16,7 +16,7 @@ export async function displayProducts(category = null) {
                 <image src="${product.image}" alt="${product.title}">
                 <h3 class="toote-nimi">${product.title}</h3>
                 <h4 class="kategooria">${product.category}</h4>
-                <p>$${product.price.toFixed(2)}</p>
+                <p class="hinnakujundus">$${product.price.toFixed(2)}</p>
                 <button class="buy-now" onclick="addToCart(${product.id})">Buy Now</button></div>
             `;
             productsContainer.appendChild(card);
