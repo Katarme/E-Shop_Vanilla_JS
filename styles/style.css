@@ -84,9 +84,11 @@ header {
   margin-inline-end: 0px;
   font-weight: bold;
   unicode-bidi: isolate;
-  background-color: #eee;
+  background-color: #f7f7f7;
   padding: 8px;
   border-radius: 30px;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 
 .toote-nimi {

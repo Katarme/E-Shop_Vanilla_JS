@@ -61,9 +61,10 @@ text-decoration: none;
     font-weight: bold;
     unicode-bidi: isolate;
     
-    background-color: #eee;
+    background-color: #f7f7f7;
     padding: 8px;
     border-radius: 30px;
+    max-width: fit-content;
   }
 
   .toote-nimi {
