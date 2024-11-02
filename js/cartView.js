@@ -1,4 +1,4 @@
-
+import { addToCart } from './cartView.js';
 
 let cart = [];
 let cartCount = 0;
@@ -35,7 +35,7 @@ export function displayCartView() {
 displayCartView();
 
 // Kliki sündmus. Lisab ühe toote id põhiselt, kui toodet on rohkem kui 0. Kui >0, siis annab teate: "Toote nimi" on otsas! ; Tellimus toote kohta on esitatud.
-document.addEventListener('click', (event) => {
+document.addEventListener('onclick', (event) => {
     if (event.target.classList.contains('add-to-cart')) {
         const productId = event.target.getAttribute('data-id');
         const product = inventory.findProductById(productId);
