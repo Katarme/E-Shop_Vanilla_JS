@@ -1,5 +1,5 @@
 import { fetchProduct } from './api.js';
-// import { addToCart } from './cartView.js';
+import { addToCart } from './cartView.js';
 
 export const displayProduct = async (id) => {
     const product = await fetchProduct(id);

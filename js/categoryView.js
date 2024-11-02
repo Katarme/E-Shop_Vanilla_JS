@@ -1,4 +1,7 @@
 import { fetchProducts } from "./api.js";
+import { addToCart } from "./cartView.js";
+
+let products = [];
 
 // Kuvan API-ga fetchitud tooted toodete konteineris koos nime, kategooria, hinna ja pildiga
 export async function displayProducts(category = null) {
@@ -17,11 +20,26 @@ export async function displayProducts(category = null) {
                 <h3 class="toote-nimi">${product.title}</h3>
                 <h4 class="kategooria">${product.category}</h4>
                 <p class="hinnakujundus">$${product.price.toFixed(2)}</p>
-                <button class="buy-now" onclick="addToCart(${product.id})">Buy Now</button></div>
             `;
-            productsContainer.appendChild(card);
+
+          const button = document.createElement('button');
+          button.className = 'buy-now';
+          button.setAttribute('data-product-id', product.id);
+          button.innerText = 'Buy Now';
+          card.appendChild(button);
+
+          productsContainer.appendChild(card);
         }
     });
+
+    // Set up event delegation for handling button clicks
+    productsContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('buy-now')) {
+          const productId = e.target.getAttribute('data-product-id');
+          addToCart(productId, products); // Call addToCart with the product ID
+      }
+  });
+  
 }
 
 

@@ -1,24 +1,34 @@
-import { addToCart } from './cartView.js';
+import { displayProducts } from "./categoryView.js";
 
 let cart = [];
 let cartCount = 0;
 
 // Funktsioon toote ostukorvi limiseks + annab teate, mis toode on lisatud
-export function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    if (product) {
-        cart.push(product);
-        cartCount++;
-        document.querySelector('.cart-count').innerText = cartCount;
-        alert(`${product.title} has been added to your cart!`);
-    }
+export function addToCart(productId, products) {
+//     const product = products.find(p => p.id === productId);
+//     if (product) {
+//         cart.push(product);
+//         cartCount++;
+//         document.querySelector('.cart-count').innerText = cartCount;
+//         alert(`${product.title} has been added to your cart!`);
+//     }
+// }
+console.log("add to cart -->" + productId)
+const product = products.find(p => p.id === parseInt(productId));
+if (product) {
+    cart.push(product);
+    cartCount++;
+    console.log("cart count --> " + cartCount);
+    document.querySelector('.cart-count').innerText = cartCount;
+    alert(`${product.title} has been added to your cart!`);
+}
 }
 
 // Funktsioon ostukorvi kuvamiseks, sisestusväljal saab kogust redigeerida
 export function displayCartView() {
     const cartItemsDiv = document.getElementById('cart-items');
     cartItemsDiv.innerHTML = '';
-    cart.listItems().forEach(item => {
+    cart.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.innerHTML = `${item.product.id} -
         <input type = "number" min = "1" value = "${item.quantity}" onchange = {"updateCart.quantity">
@@ -29,13 +39,13 @@ export function displayCartView() {
     });
 
     const totalDiv = document.getElementById('cart-total');
-    totalDiv.innerHTML = `Kogusumma: ${cart.getTotal()}€`;
+    // totalDiv.innerHTML = `Kogusumma: ${cart.getTotal()}€`;
 }
 
 displayCartView();
 
 // Kliki sündmus. Lisab ühe toote id põhiselt, kui toodet on rohkem kui 0. Kui >0, siis annab teate: "Toote nimi" on otsas! ; Tellimus toote kohta on esitatud.
-document.addEventListener('onclick', (event) => {
+document.addEventListener('click', (event) => {
     if (event.target.classList.contains('add-to-cart')) {
         const productId = event.target.getAttribute('data-id');
         const product = inventory.findProductById(productId);
@@ -66,4 +76,4 @@ document.getElementById('clear-cart').addEventListener('click', () => {
 });
 
 displayProducts();
-displayCart();
+// displayCart();
