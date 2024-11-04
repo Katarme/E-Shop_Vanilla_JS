@@ -5,10 +5,7 @@ let products = [];
 
 // Kuvan API-ga fetchitud tooted toodete konteineris koos nime, kategooria, hinna ja pildiga
 export async function displayProducts(category = null) {
-    console.log("Fetchin tooted1")
     const products = await fetchProducts();
-    console.log("Fetchin tooted2")
-    console.log(products);
     const productsContainer = document.getElementById('products-container');
     productsContainer.innerHTML = '';
 
@@ -27,23 +24,21 @@ export async function displayProducts(category = null) {
           button.className = 'buy-now';
           button.setAttribute('id', product.id);
           button.innerText = 'Buy Now';
+          button.onclick = (e) => {e.stopPropagation(); addToCart(product);}
           card.appendChild(button);
 
           productsContainer.appendChild(card);
         }
     });
-    console.log("Fetchin tooted3")
 
     // Set up event delegation for handling button clicks
-    productsContainer.addEventListener('click', (e) => {
-      console.log(e);
-      console.log("Fetchin tooted4")
-      e.stopPropagation();
-      if (e.target.classList.contains('buy-now')) {
-          const productId = e.target.getAttribute('id');
-          addToCart(productId, products); // Call addToCart with the product ID
-      }
-  });
+  //   productsContainer.addEventListener('click', (e) => {
+  //     e.stopPropagation();
+  //     if (e.target.classList.contains('buy-now')) {
+  //         const productId = e.target.getAttribute('id');
+  //         addToCart(productId, products); // Call addToCart with the product ID
+  //     }
+  // });
 
 }
 
@@ -80,7 +75,6 @@ export async function displayProducts(category = null) {
 //       document.getElementById(`add-to-cart-${product.id}`).onclick = (e) => {
 //         e.stopPropagation(); // Väldib, et tootekaardile klikk navigeeriks tootevaatesse, kui vajutatakse "Lisa ostukorvi" nuppu
 //         addToCart(productId);
-//         console.log("click");
 //       };
 //     });
 //   };

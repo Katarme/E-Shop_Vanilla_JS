@@ -45,7 +45,7 @@ text-decoration: none;
     margin-inline-end: 0px;
     font-weight: bold;
     unicode-bidi: isolate;
-    
+
     background-color: #f7f7f7;
     padding: 8px;
     border-radius: 30px;
@@ -113,6 +113,16 @@ nav ul li a {
     background-color: #0a009c;
     color: rgb(255, 255, 255);
     font-weight: 800;
+}
+
+.remove-item {
+  background-color: #050046;
+  text-decoration-color: #ffffff;
+  color: #fff;
+  border-color: #050046;
+  padding: 8px 12px;
+  border-radius: 30px;
+  font-weight: 500;
 }
 
 // Jalus

@@ -1,18 +1,43 @@
 import { displayProducts } from "./categoryView.js";
-import { fetchCategories } from "./api.js";
+import { fetchCategories, fetchProducts } from "./api.js";
 import { navigate } from "./router.js";
-// import { navigate } from "./"
+import { Product } from "./product.js";
+import { Inventory } from "./inventory.js";
+
+// import { navigate } from "./router.js"
 
 // const initApp = async () => {
-//     console.log("Olen siin");
 //     displayProducts();
 // };
+
+// Tooted lattu
+
+const inventoryInstance = new Inventory();
+
+async function initializeInventory() {
+    const products = await fetchProducts();
+    products.forEach((productData) => {
+      const product = new Product(
+        productData.id,
+        productData.title,
+        productData.price,
+        productData.description,
+        productData.image
+      );
+  
+      const randomStock = Math.floor(Math.random() * (20 - 5) + 5);
+      // Näiteks määrame igale tootele laokoguseks 10 ühikut
+      inventoryInstance.addProduct(product, randomStock);
+    });
+    console.log("Inventuuri sisu", inventoryInstance.getAllProducts());
+  }
+  
+  initializeInventory();
 
 // Lingin kategooriad onclick
 
 const initApp = async () => {
     const categories = await fetchCategories();
-    console.log(categories);
     const categoryMenu = document.getElementById("category-menu");
 
     categories.forEach((category) => {
