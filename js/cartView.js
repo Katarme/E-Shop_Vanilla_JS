@@ -6,13 +6,13 @@ let cartCount = 0;
 // Funktsioon toote ostukorvi lisamiseks + annab teate, mis toode on lisatud
 export function addToCart(product) {
     console.log("addToCart")
-const existingItem = cart.find(p => p.id === product.id);
-if (existingItem) {       
+    const existingItem = cart.find(p => p.id === product.id);
+    if (existingItem) {       
     existingItem.quantity++;
-}
-else {
+    }
+    else {
     cart.push({...product, quantity: 1});
-}
+    }
     cartCount++;
     document.querySelector('.cart-count').innerText = cartCount;
     alert(`${product.title} has been added to your cart!`);

@@ -1,27 +1,27 @@
 @charset "UTF-8";
 .product-card {
-  width: 160px; /* laius */
-  height: 500px; /* k6rgus */
-  border-radius: 5px; /* Nurkade ümardamine */
-  padding: 30px 100px; /* Sisemine marginaal */
+  width: 160px;
+  height: 500px;
+  border-radius: 5px;
+  padding: 30px 100px;
   padding-left: 48px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Varju efekt */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   margin-left: 20px;
   margin-bottom: 56px;
 }
 
 .product-card img {
-  width: 180px; /* laius */
-  height: 270px; /* k6rgus */
+  width: 180px;
+  height: 270px;
 }
 
 .product {
-  width: 100%; /* laius */
-  border: 1px solid #c4c4c4; /* joon ümber */
-  padding: 10px; /* sisemine marginaal */
-  margin: 10px; /* v2line marginaal */
-  display: center; /* alusta algusest */
+  width: 100%;
+  border: 1px solid #c4c4c4;
+  padding: 10px;
+  margin: 10px;
+  display: center;
   box-sizing: border-box;
 }
 
@@ -88,11 +88,11 @@ header {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 veergu */
-  grid-gap: 0px; /* Vahe kaartide vahel */
-  padding-top: 40px; /* Ülemine padding */
-  justify-content: flex-start; /* Keskjoondus horisontaalselt */
-  align-items: start; /* Joondus ülemise serva järgi (valikuline) */
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0px;
+  padding-top: 40px;
+  justify-content: flex-start;
+  align-items: start;
   background-color: #f7f7f7;
 }
 

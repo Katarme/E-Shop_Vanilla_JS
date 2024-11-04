@@ -45,7 +45,6 @@ text-decoration: none;
     margin-inline-end: 0px;
     font-weight: bold;
     unicode-bidi: isolate;
-
     background-color: #f7f7f7;
     padding: 8px;
     border-radius: 30px;
@@ -64,11 +63,11 @@ text-decoration: none;
 
 .products {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 veergu */
-    grid-gap: 0px; /* Vahe kaartide vahel */
-    padding-top: 40px; /* Ülemine padding */
-    justify-content: flex-start; /* Keskjoondus horisontaalselt */
-    align-items: start; /* Joondus ülemise serva järgi (valikuline) */
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0px;
+    padding-top: 40px;
+    justify-content: flex-start;
+    align-items: start;
     background-color: #f7f7f7;
   }
 
@@ -93,7 +92,6 @@ nav ul li a {
     color: white;
 }
 
-// "Osta" nupp
 .buy-now {
     cursor: pointer;
     background-color: #050046;
@@ -107,9 +105,7 @@ nav ul li a {
     font-weight: 800;
 }
 
-// Osta nupp "hover" efekt
 .buy-now:hover {
-    // background-color: #180270;
     background-color: #0a009c;
     color: rgb(255, 255, 255);
     font-weight: 800;
@@ -125,7 +121,6 @@ nav ul li a {
   font-weight: 500;
 }
 
-// Jalus
 footer {
   text-align: center;
   background: #050046;
@@ -145,7 +140,6 @@ footer {
     font-weight: bold;
 }
 
-// "Tyhjenda ostukorv" nupp
 #clear-cart {
     cursor: pointer;
     background-color: #050046;
@@ -157,7 +151,6 @@ footer {
     margin-top: 30px;
 }
 
-// Ostukorvi konteiner
 #cart-container {
     display: none;
     position: fixed;

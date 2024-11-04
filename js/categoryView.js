@@ -30,19 +30,7 @@ export async function displayProducts(category = null) {
           productsContainer.appendChild(card);
         }
     });
-
-    // Set up event delegation for handling button clicks
-  //   productsContainer.addEventListener('click', (e) => {
-  //     e.stopPropagation();
-  //     if (e.target.classList.contains('buy-now')) {
-  //         const productId = e.target.getAttribute('id');
-  //         addToCart(productId, products); // Call addToCart with the product ID
-  //     }
-  // });
-
 }
-
-
 
 // export const loadCategoryView = async (category) => {
 //     const products = await fetchProductsByCategory(category);
