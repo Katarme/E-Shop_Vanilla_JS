@@ -10,7 +10,7 @@ export const displayProduct = async (id) => {
             <img src="${product.image}" alt="${product.title}">
             <h3>${product.title}</h3>
             <p class="hinnakujundus">$${product.price.toFixed(2)}</p>
-            <button class="buy-now" onclick="addToCart(${product.id})">Buy Now</button>
+            <button class="buy-now" id="submit${product.id}" onclick="addToCart(${product.id})">Buy Now</button>
         `;
     } else {
         productDetailContainer.innerHTML = '<p>Toodet ei leitud.</p>';

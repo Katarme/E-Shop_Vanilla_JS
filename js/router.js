@@ -1,14 +1,14 @@
-import { loadCategoryView } from "./loadCategoryView.js";
+import { displayProducts } from "./categoryView.js";
 import { loadProductView } from './productView.js';
-// import { loadCartView } from './cartView.js';
+import { displayCartView } from './cartView.js';
 
 // Funktsioon, mis vastutab vaadete vahel liikumise eest
 
 export const navigate = (view, parem) => {
     const views = {
-        category: () => loadCategoryView(parem || "all"), // Kasuta vaikeväärtust "all" kategooriana
+        category: () => displayProducts(parem || "all"), // Kasuta vaikeväärtust "all" kategooriana
         // product: () => loadProductView(parem), // üks toode
-        // cart: () => loadCartView(), // Näita ostukorvi vaadet
+        cart: () => displayCartView(), // Näita ostukorvi vaadet
     };
 
     //Vali ja käivita sobiv vaade

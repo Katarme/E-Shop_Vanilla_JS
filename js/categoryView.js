@@ -5,8 +5,9 @@ let products = [];
 
 // Kuvan API-ga fetchitud tooted toodete konteineris koos nime, kategooria, hinna ja pildiga
 export async function displayProducts(category = null) {
-    console.log("Fetchin tooted")
+    console.log("Fetchin tooted1")
     const products = await fetchProducts();
+    console.log("Fetchin tooted2")
     console.log(products);
     const productsContainer = document.getElementById('products-container');
     productsContainer.innerHTML = '';
@@ -24,59 +25,62 @@ export async function displayProducts(category = null) {
 
           const button = document.createElement('button');
           button.className = 'buy-now';
-          button.setAttribute('data-product-id', product.id);
+          button.setAttribute('id', product.id);
           button.innerText = 'Buy Now';
           card.appendChild(button);
 
           productsContainer.appendChild(card);
         }
     });
+    console.log("Fetchin tooted3")
 
     // Set up event delegation for handling button clicks
     productsContainer.addEventListener('click', (e) => {
+      console.log(e);
+      console.log("Fetchin tooted4")
+      e.stopPropagation();
       if (e.target.classList.contains('buy-now')) {
-          const productId = e.target.getAttribute('data-product-id');
+          const productId = e.target.getAttribute('id');
           addToCart(productId, products); // Call addToCart with the product ID
       }
   });
-  
+
 }
 
 
-// ______________________________________________________________
 
-export const loadCategoryView = async (category) => {
-    const products = await fetchProductsByCategory(category);
-    const productList = document.getElementById("product-list");
-    productList.innerHTML = ""; // Tühjenda toodete ala
+// export const loadCategoryView = async (category) => {
+//     const products = await fetchProductsByCategory(category);
+//     const productList = document.getElementById("product-list");
+//     productList.innerHTML = ""; // Tühjenda toodete ala
   
-    products.forEach((productData) => {
-      const product = new Product(
-        productData.id,
-        productData.title,
-        productData.price,
-        productData.description,
-        productData.image
-      );
+//     products.forEach((productData) => {
+//       const product = new Product(
+//         productData.id,
+//         productData.title,
+//         productData.price,
+//         productData.description,
+//         productData.image
+//       );
   
-      const productElement = document.createElement("div");
-      productElement.classList.add("product-item");
-      productElement.innerHTML = `
-              <img src="${product.image}" alt="${product.title}">
-              <h3>${product.title}</h3>
-              <p>${product.price}€</p>
-              <button id="add-to-cart-${product.id}">Lisa ostukorvi</button>
-          `;
+//       const productElement = document.createElement("div");
+//       productElement.classList.add("product-item");
+//       productElement.innerHTML = `
+//               <img src="${product.image}" alt="${product.title}">
+//               <h3>${product.title}</h3>
+//               <p>${product.price}€</p>
+//               <button id="add-to-cart-${product.id}">Lisa ostukorvi</button>
+//           `;
   
-      // Klikk tootekaardil viib toote detailvaatesse
-      productElement.onclick = () => navigate("product", product.id);
+//       // Klikk tootekaardil viib toote detailvaatesse
+//       productElement.onclick = () => navigate("product", product.id);
   
-      productList.appendChild(productElement);
+//       productList.appendChild(productElement);
   
-      document.getElementById(`add-to-cart-${product.id}`).onclick = (e) => {
-        e.stopPropagation(); // Väldib, et tootekaardile klikk navigeeriks tootevaatesse, kui vajutatakse "Lisa ostukorvi" nuppu
-        addToCart(productId);
-        console.log("click");
-      };
-    });
-  };
+//       document.getElementById(`add-to-cart-${product.id}`).onclick = (e) => {
+//         e.stopPropagation(); // Väldib, et tootekaardile klikk navigeeriks tootevaatesse, kui vajutatakse "Lisa ostukorvi" nuppu
+//         addToCart(productId);
+//         console.log("click");
+//       };
+//     });
+//   };

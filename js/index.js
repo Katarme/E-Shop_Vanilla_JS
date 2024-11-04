@@ -1,5 +1,7 @@
 import { displayProducts } from "./categoryView.js";
 import { fetchCategories } from "./api.js";
+import { navigate } from "./router.js";
+// import { navigate } from "./"
 
 // const initApp = async () => {
 //     console.log("Olen siin");
@@ -20,17 +22,19 @@ const initApp = async () => {
         categoryMenu.appendChild(categoryElement);
     }),
 
-    displayProducts(categories[0]);
+    displayProducts(categories[0]); // Tuleb esimene vaade
+
+    const cartBtn = document.getElementById("cartBtn");
+    cartBtn.onclick = () => navigate("cart");
+
+    // document.getElementById("cartBtn").addEventListener("click", function() {         
+    //     const element = document.getElementById("cart-container");         
+    //     // if (element.style.display === "none" || element.style.display === "") {             
+    //     //     element.style.display = "block"; // Näitab elementi      
+    //     //     } else {             
+    //     //     element.style.display = "none"; // Peidab elemendi
+    //     navigate("cart");
+    // });
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
-
-// JavaScript ostukorvi kihi nägemiseks ostukorvi ikoonil vajutades paremal nav nurgas
-
-document.getElementById("myBtn").addEventListener("click", function() {         
-    const element = document.getElementById("cart-container");         
-    if (element.style.display === "none" || element.style.display === "") {             
-        element.style.display = "block"; // Näitab elementi      
-        } else {             
-        element.style.display = "none"; // Peidab elemendi
-} });
