@@ -34,13 +34,15 @@ export function displayCartView() {
         const itemDiv = document.createElement('div');
         itemDiv.innerHTML = `${item.title} -
         <input type = "number" min = "1" value = "${item.quantity}" onchange = {"updateCart.quantity">
-            <button class="remove-item" data-name="${item.id}">Eemalda</button>
+            <button class="remove-item" data-id="${item.id}">Eemalda</button>
         `;
 
         cartItemsContainer.appendChild(itemDiv);
     });
 
     const totalDiv = document.getElementById('cart-total');
+
+
     // totalDiv.innerHTML = `Kogusumma: ${cart.getTotal()}€`;
 
     // const total = getTotal();
@@ -49,21 +51,22 @@ export function displayCartView() {
 
 // Eemalda ostukorvi nimekirjast
 
-// export const removeFromCartView = (product) => {
+export function removeItem(productId) {
   
-//     cart = cart.filter((item) => item.id !== product.id);
+    cart = cart.filter((item) => item.id != productId);
+    console.log(cart)
   
-//     const productInstance = new Product(
-//       product.id,
-//       product.title,
-//       product.price,
-//       product.description,
-//       product.image
-//     );
+    // const productInstance = new Product(
+    //   product.id,
+    //   product.title,
+    //   product.price,
+    //   product.description,
+    //   product.image
+    // );
   
-//     inventoryInstance.addProduct(productInstance, product.quantity);
-//     loadCartView();
-//   };
+    // inventoryInstance.addProduct(productInstance, product.quantity);
+    displayCartView();
+  };
 
 // Kliki sündmus. Lisab ühe toote id põhiselt, kui toodet on rohkem kui 0. Kui >0, siis annab teate: "Toote nimi" on otsas! ; Tellimus toote kohta on esitatud.
 document.addEventListener('click', (event) => {
@@ -79,8 +82,8 @@ document.addEventListener('click', (event) => {
         }
     } else if (event.target.classList.contains('remove-item')) {
         const productId = event.target.getAttribute('data-id');
-        cart.removeItem(productId);
-        displayCart();
+        removeItem(productId);
+        // displayCart();
     } else if (event.target.classList.contains('backorder')) {
         const productId = event.target.getAttribute('data-id');
         const product = inventory.findProductByName(productId);
@@ -92,6 +95,7 @@ document.addEventListener('click', (event) => {
 
 // Tühjenda ostukorv
 // document.getElementById('clear-cart').addEventListener('click', () => {
+    // Cart viskab selles funktsioonis välja
 //     cart.clearCart();
-//     displayCart();
+//     displayCartView();
 // });
