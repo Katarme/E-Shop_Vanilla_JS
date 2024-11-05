@@ -30,41 +30,31 @@ export function displayCartView() {
     cartSection.appendChild(cartItemsContainer);
     mainDiv.appendChild(cartSection);
 
+// Eemaldab valitud tooted
+    // const removeSelectedBtn = document.createElement('button');
+    // removeSelectedBtn.innerText = 'Eemalda valitud tooted';
+    // removeSelectedBtn.id = 'remove-selected-items';
+    // cartSection.appendChild(removeSelectedBtn);
+    
+    // mainDiv.appendChild(cartSection);
+
+// Loob ostukorvi pandud tootele koguse redikeerimise lahtri ja "Eemalda" nupu
     cart.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.innerHTML = `${item.title} -
         <input type = "number" min = "1" value = "${item.quantity}" onchange = {"updateCart.quantity">
-            <button class="remove-item" data-id="${item.id}">Eemalda</button>
+        <button class="remove-item" data-id="${item.id}">Eemalda</button>
         `;
-
         cartItemsContainer.appendChild(itemDiv);
     });
 
     const totalDiv = document.getElementById('cart-total');
-
-
-    // totalDiv.innerHTML = `Kogusumma: ${cart.getTotal()}€`;
-
-    // const total = getTotal();
-    // mainContent.innerHTML += `<p>Kogusumma: ${total} €</p>`;
 }
 
 // Eemalda ostukorvi nimekirjast
-
 export function removeItem(productId) {
-  
     cart = cart.filter((item) => item.id != productId);
     console.log(cart)
-  
-    // const productInstance = new Product(
-    //   product.id,
-    //   product.title,
-    //   product.price,
-    //   product.description,
-    //   product.image
-    // );
-  
-    // inventoryInstance.addProduct(productInstance, product.quantity);
     displayCartView();
   };
 
@@ -92,10 +82,3 @@ document.addEventListener('click', (event) => {
         }
     }
 });
-
-// Tühjenda ostukorv
-// document.getElementById('clear-cart').addEventListener('click', () => {
-    // Cart viskab selles funktsioonis välja
-//     cart.clearCart();
-//     displayCartView();
-// });
