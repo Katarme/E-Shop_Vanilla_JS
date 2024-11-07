@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .product-card {
   width: 160px;
   height: 500px;
@@ -23,6 +22,28 @@
   margin: 10px;
   display: center;
   box-sizing: border-box;
+}
+
+.productView {
+  width: 680px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  margin: 20px;
+  padding: 30px;
+}
+
+.remove-item {
+  cursor: pointer;
+  background-color: #050046;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  padding-top: 10px;
+  border-radius: 30px;
+  margin-top: 30px;
 }
 
 body {
@@ -131,9 +152,19 @@ nav ul li a {
 }
 
 .buy-now:hover {
-    background-color: #0a009c;
+  background-color: #0a009c;
   color: rgb(255, 255, 255);
   font-weight: 800;
+}
+
+#button {
+  background-color: #050046;
+  text-decoration-color: #ffffff;
+  color: #fff;
+  border-color: #050046;
+  padding: 8px 12px;
+  border-radius: 30px;
+  font-weight: 500;
 }
 
 footer {

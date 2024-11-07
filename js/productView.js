@@ -3,8 +3,11 @@ import { addToCart } from './cartView.js';
 
 export const displayProductView = async (id) => {
     const product = await fetchProduct(id);
-    const productDetailContainer = document.getElementById('products-container');
-    productDetailContainer.innerHTML = "";
+    const mainDiv = document.getElementById('products-container');
+    mainDiv.innerHTML = ""
+    const productDetailContainer = document.createElement('div');
+    productDetailContainer.className = "productView";
+    
 
     if (product) {
         productDetailContainer.innerHTML = `
@@ -23,4 +26,6 @@ export const displayProductView = async (id) => {
     } else {
         productDetailContainer.innerHTML = '<p>Toodet ei leitud.</p>';
     }
+mainDiv.append(productDetailContainer);
+
 };

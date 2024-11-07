@@ -1,0 +1,21 @@
+ .productView {
+    width: 680px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    margin: 20px;
+    padding: 30px;
+  }
+
+  .remove-item {
+    cursor: pointer;
+    background-color: #050046;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    padding-top: 10px;
+    border-radius: 30px;
+    margin-top: 30px;
+  }

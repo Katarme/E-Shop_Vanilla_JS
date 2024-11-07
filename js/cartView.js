@@ -16,7 +16,7 @@ export function addToCart(product) {
     alert(`${product.title} has been added to your cart!`);
 }
 
-// Funktsioon ostukorvi kuvamiseks, sisestusväljal saab kogust redigeerida
+// Funktsioon ostukorvi, ostukorvi kogusumma ja toote koguse reigeerimise kuvamiseks ja muutmiseks
 export function displayCartView() {
     const mainDiv = document.getElementById('products-container');
     mainDiv.innerHTML = "";
@@ -32,7 +32,7 @@ export function displayCartView() {
     cartSection.appendChild(cartItemsContainer);
     mainDiv.appendChild(cartSection);
 
-// Loob ostukorvi pandud tootele koguse redikeerimise lahtri ja "Eemalda" nupu
+// Loob ostukorvi pandud tootele koguse redikeerimise lahtri, +/- funktsionaalsuse ja "Eemalda" nupu
     cart.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.innerHTML = `${item.title} -
@@ -78,14 +78,14 @@ export function displayCartView() {
     const totalDiv = document.getElementById('cart-total');
 }
 
-    export const updateCartItemQuantity = (productId, newQuantity) => {
-        const product = cart.find((item) => item.id === productId);
-        if (product) {
-          product.quantity = newQuantity > 0 ? newQuantity : 1; // Vähemalt 1 toode
+export const updateCartItemQuantity = (productId, newQuantity) => {
+    const product = cart.find((item) => item.id === productId);
+    if (product) {
+        product.quantity = newQuantity > 0 ? newQuantity : 1; // Vähemalt 1 toode
         displayCartCount();
-          displayCartView(); // uuenda vaadet
-        }
-      };
+        displayCartView(); // uuenda vaadet
+    }
+};
 
 
 // Eemalda ostukorvi nimekirjast ühe kaupa
@@ -94,7 +94,8 @@ export function removeItem(productId) {
     displayCartView();
     displayCartCount()
   };
-  export const getTotal = () => {
+
+export const getTotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
@@ -109,24 +110,20 @@ document.addEventListener('click', (event) => {
         const productId = event.target.getAttribute('data-id');
         const product = inventory.findProductById(productId);
 
-        if (product && product.quantity > 0) {
-            cart.addItem(product, 1);
-            displayCart();
-        } else {
-            alert(`${productTitle} on otsas!`);
-        }
+    if (product && product.quantity > 0) {
+        cart.addItem(product, 1);
+        displayCart();
+    } else {
+        alert(`${productTitle} on otsas!`);
+    }
     } else if (event.target.classList.contains('remove-item')) {
         const productId = event.target.getAttribute('data-id');
         removeItem(productId);
     } else if (event.target.classList.contains('backorder')) {
         const productId = event.target.getAttribute('data-id');
         const product = inventory.findProductByName(productId);
-        if (product) {
-            alert(`Tellimus toote ${product.title} kohta on esitatud.`);
-        }
+    if (product) {
+        alert(`Tellimus toote ${product.title} kohta on esitatud.`);
+    }
     }
 });
-
-// export const getTotal = () => {
-//     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-//   };
