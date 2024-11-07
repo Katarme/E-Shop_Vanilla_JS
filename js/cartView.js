@@ -1,7 +1,6 @@
 import { displayProducts } from "./categoryView.js";
 
 let cart = [];
-let cartCount = 0;
 
 // Funktsioon toote ostukorvi lisamiseks + annab teate, mis toode on lisatud
 export function addToCart(product) {
@@ -13,8 +12,7 @@ export function addToCart(product) {
     else {
     cart.push({...product, quantity: 1});
     }
-    cartCount++;
-    document.querySelector('.cart-count').innerText = cartCount;
+    displayCartCount();
     alert(`${product.title} has been added to your cart!`);
 }
 
@@ -27,36 +25,83 @@ export function displayCartView() {
     cartSection.innerHTML = "<h2>Ostukorv</h2>";
     const cartItemsContainer = document.createElement("div");
     cartItemsContainer.id = "cart-items";
+
+    const total = getTotal();
+    cartSection.innerHTML += `<p>Kogusumma: ${total} €</p>`;
+
     cartSection.appendChild(cartItemsContainer);
     mainDiv.appendChild(cartSection);
-
-// Eemaldab valitud tooted
-    // const removeSelectedBtn = document.createElement('button');
-    // removeSelectedBtn.innerText = 'Eemalda valitud tooted';
-    // removeSelectedBtn.id = 'remove-selected-items';
-    // cartSection.appendChild(removeSelectedBtn);
-    
-    // mainDiv.appendChild(cartSection);
 
 // Loob ostukorvi pandud tootele koguse redikeerimise lahtri ja "Eemalda" nupu
     cart.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.innerHTML = `${item.title} -
-        <input type = "number" min = "1" value = "${item.quantity}" onchange = {"updateCart.quantity">
-        <button class="remove-item" data-id="${item.id}">Eemalda</button>
         `;
-        cartItemsContainer.appendChild(itemDiv);
+
+        const quantityContainer = document.createElement("div");
+        quantityContainer.className = "quantity-container";
+    
+        const decreaseButton = document.createElement("button");
+        decreaseButton.textContent = "-";
+        decreaseButton.onclick = () =>
+          updateCartItemQuantity(item.id, item.quantity - 1);
+    
+        const quantityInput = document.createElement("input");
+        quantityInput.type = "number";
+        quantityInput.value = item.quantity;
+        quantityInput.min = 1;
+        quantityInput.onchange = (e) =>
+          updateCartItemQuantity(item.id, parseInt(e.target.value));
+    
+        const increaseButton = document.createElement("button");
+        increaseButton.textContent = "+";
+        increaseButton.onclick = () =>
+          updateCartItemQuantity(item.id, item.quantity + 1);
+    
+        quantityContainer.appendChild(decreaseButton);
+        quantityContainer.appendChild(quantityInput);
+        quantityContainer.appendChild(increaseButton);
+    
+        itemDiv.appendChild(quantityContainer);
+    
+        // Eemaldamisnupp
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Eemalda";
+        removeButton.setAttribute("data-id", item.id);
+        removeButton.setAttribute("class", "remove-item");
+    
+        itemDiv.appendChild(removeButton);
+
+    cartItemsContainer.appendChild(itemDiv);
     });
 
     const totalDiv = document.getElementById('cart-total');
 }
 
-// Eemalda ostukorvi nimekirjast
+    export const updateCartItemQuantity = (productId, newQuantity) => {
+        const product = cart.find((item) => item.id === productId);
+        if (product) {
+          product.quantity = newQuantity > 0 ? newQuantity : 1; // Vähemalt 1 toode
+        displayCartCount();
+          displayCartView(); // uuenda vaadet
+        }
+      };
+
+
+// Eemalda ostukorvi nimekirjast ühe kaupa
 export function removeItem(productId) {
     cart = cart.filter((item) => item.id != productId);
-    console.log(cart)
     displayCartView();
+    displayCartCount()
   };
+  export const getTotal = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+export function displayCartCount() { 
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    document.querySelector('.cart-count').innerText = count;
+}
 
 // Kliki sündmus. Lisab ühe toote id põhiselt, kui toodet on rohkem kui 0. Kui >0, siis annab teate: "Toote nimi" on otsas! ; Tellimus toote kohta on esitatud.
 document.addEventListener('click', (event) => {
@@ -73,7 +118,6 @@ document.addEventListener('click', (event) => {
     } else if (event.target.classList.contains('remove-item')) {
         const productId = event.target.getAttribute('data-id');
         removeItem(productId);
-        // displayCart();
     } else if (event.target.classList.contains('backorder')) {
         const productId = event.target.getAttribute('data-id');
         const product = inventory.findProductByName(productId);
@@ -82,3 +126,7 @@ document.addEventListener('click', (event) => {
         }
     }
 });
+
+// export const getTotal = () => {
+//     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+//   };
