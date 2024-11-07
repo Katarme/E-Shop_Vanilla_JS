@@ -1,5 +1,6 @@
 import { fetchProducts } from "./api.js";
 import { addToCart } from "./cartView.js";
+import { navigate } from "./router.js";
 
 let products = [];
 
@@ -19,6 +20,8 @@ export async function displayProducts(category = null) {
                 <h4 class="kategooria">${product.category}</h4>
                 <p class="hinnakujundus">$${product.price.toFixed(2)}</p>
             `;
+
+            card.onclick = (e) => {e.stopPropagation(); navigate("product", product.id);}
 
           const button = document.createElement('button');
           button.className = 'buy-now';

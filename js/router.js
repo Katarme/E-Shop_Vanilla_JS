@@ -1,5 +1,5 @@
 import { displayProducts } from "./categoryView.js";
-import { loadProductView } from './productView.js';
+import { displayProductView } from './productView.js';
 import { displayCartView } from './cartView.js';
 
 // Funktsioon, mis vastutab vaadete vahel liikumise eest
@@ -7,7 +7,7 @@ import { displayCartView } from './cartView.js';
 export const navigate = (view, parem) => {
     const views = {
         category: () => displayProducts(parem || "all"), // Kasuta vaikeväärtust "all" kategooriana
-        // product: () => loadProductView(parem), // üks toode
+        product: () => displayProductView(parem), // üks toode
         cart: () => displayCartView(), // Näita ostukorvi vaadet
     };
 
